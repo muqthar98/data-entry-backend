@@ -22,7 +22,7 @@ export const getAllUsers = async (req, res) => {
 export const getUser = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
-        res.json({status:200,message:"User record found",user});
+        res.json({status:200,message:"User record found",data:user});
       } catch (err) {
         res.json({status:401, message: "User record not found" });
       }
