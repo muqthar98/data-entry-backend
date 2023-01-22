@@ -2,9 +2,9 @@ import User from "../models/userModel.js";
 
 export const createUser = async (req, res) => {
   try {
-    const {name,phoneNumber,itemName,advanceAmount,address,isPaid} = req.body;
-    const user = await User.create({name,phoneNumber,itemName,advanceAmount,address,isPaid});
-    res.json({status:200,message:"User created successfully",user});
+    const {name,mobile,itemName,advanceAmount,balanceAmount,address,isPaid} = req.body;
+    const user = await User.create({name,mobile,itemName,advanceAmount,balanceAmount,address,isPaid});
+    res.json({status:200,message:"User created successfully",data:user});
   } catch (err) {
     res.json({status:401, message: err.message });
   }
@@ -32,9 +32,10 @@ export const updateUser = async (req, res) => {
     const user = await User.findById(req.params.id);
     if (user) {
     (user.name = req.body.name || user.name),
-    (user.phoneNumber = req.body.phoneNumber || user.phoneNumber);
+    (user.mobile = req.body.mobile || user.mobile);
     (user.itemName = req.body.itemName || user.itemName);
     (user.advanceAmount = req.body.advanceAmount || user.advanceAmount);
+    (user.balanceAmount = req.body.balanceAmount || user.balanceAmount);
     (user.address = req.body.address || user.address);
     (user.isPaid = req.body.isPaid || user.isPaid);
 

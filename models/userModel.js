@@ -4,11 +4,14 @@ const userSchema = new mongoose.Schema({
     name:{
         type: String,
     },
-    phoneNumber:{
+    mobile:{
         type: String,
     },
     itemName :{
         type: String,
+    },
+    balanceAmount : {
+        type: Number
     },
     advanceAmount:{
         type: Number,
